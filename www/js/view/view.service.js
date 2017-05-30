@@ -6,7 +6,7 @@ angular
     .service('viewService', ['$http', 'FHCloud',
     function($http, FHCloud) {
 
-
+      /*
       // register with the server to start receiving push notifications
       $fh.push(function(e) {
 
@@ -25,7 +25,7 @@ angular
         console.log("Failed to register for push: " + err);
       }
     );
-
+*/
 
     var service = {};
 

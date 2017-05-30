@@ -53,15 +53,12 @@ var app = {
     register: function () {
       $fh.push(app.onNotification, successHandler, errorHandler);
 
-      angular.element(document).ready(function() {
-          angular.bootstrap(document.getElementById("deviceready"), ["IoTEvent-Demo-App"]);
-      });
-
       function successHandler() {
          app.clearMessages();
          if (document.getElementById("messages").childElementCount === 0) {
            document.getElementById("nothing").style.display = 'block';
          }
+         app.onDeviceReady();
       }
 
       function errorHandler(error) {

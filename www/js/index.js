@@ -26,30 +26,18 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('deviceready', this.register, false);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-      $fh.push(app.onNotification, successHandler, errorHandler);
 
       angular.element(document).ready(function() {
           angular.bootstrap(document.getElementById("deviceready"), ["IoTEvent-Demo-App"]);
+          app.register();
       });
-
-      function successHandler() {
-         app.clearMessages();
-         if (document.getElementById("messages").childElementCount === 0) {
-           document.getElementById("nothing").style.display = 'block';
-         }
-      }
-
-      function errorHandler(error) {
-         app.clearMessages();
-         app.addMessage('error registering ' + error);
-      }
 
     },
     // Update DOM on a Received Event

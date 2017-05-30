@@ -98,6 +98,7 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
      });
    });
 
+
    cmsapp.run(function() {
      // register with the server to start receiving push notifications
      $fh.push(function(e) {
@@ -107,7 +108,7 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
 
     // only on iOS
     if (e.badge) {
-      push.setApplicationIconBadgeNumber(function() {//success}, e.badge);
+      push.setApplicationIconBadgeNumber(function() {}, e.badge);
     }
   }, function() {
     console.log("Registered for push");
@@ -119,5 +120,6 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
 
 });
 });
+
 
 })();

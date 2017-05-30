@@ -1,0 +1,42 @@
+<div flex layout="column" layout-align="none" class="mdb-element-y">
+
+<div flex layout="row" layout-align="start center" class="mdb-element-y">
+    <span flex="none" class="mdb-element-y" layout-margin>
+    <md-icon class="md-secondary mdb-element-y" ng-click="back()" aria-label="Back" md-svg-icon="img/ic_keyboard_backspace_24px.svg">
+    </md-icon>
+  </span>
+    <span layout-margin layout-fill class="mdb-element-y">
+    <h4>Push Notification</h4>
+  </span>
+</div>
+
+  <section flex layout="column" class="mdb-element-y"> <!-- form -->
+    <md-subheader class="md-primary mdb-element-y">{{processInstance.taskSummaries[0].name}}</md-subheader>
+    <md-content class="md-inline-form mdb-element-y">
+      <form name="form">
+        <div layout="row" layout-xs="column" layout-margin layout-padding class="mdb-element-y">
+          <md-input-container flex class="md-block mdb-element-y">
+            <label class="mdb-element-y">Device Type: {{deviceType}}</label>
+          </md-input-container>
+          <md-input-container flex class="md-block mdb-element-y">
+            <label class="mdb-element-y">Device Id: {{deviceId}}</label>
+          </md-input-container>
+        </div>
+        <div layout="row" layout-xs="column" layout-margin layout-padding class="mdb-element-y">
+          <md-input-container flex class="md-block mdb-element-y">
+            <label class="mdb-element-y">Time Message Received: {{timestamp}}</label>
+          </md-input-container>
+          <md-input-container flex class="md-block mdb-element-y">
+            <label class="mdb-element-y">Data Received: {{payload}}</label>
+          </md-input-container>
+        </div>
+      </form>
+    </md-content>
+    </section> <!-- form -->
+  <md-divider></md-divider>
+    <section flex class="mdb-element-y" layout="row" layout-gt-md="row" layout-align="center center" layout-margin layout-padding layout-wrap>
+
+        <md-button ng-click="submit()" class="md-raised md-primary mdb-element-y">Submit</md-button>
+        <md-button ng-click="cancel()" class="md-raised md-primary mdb-element-y">Cancel</md-button>
+    </section>
+</div>

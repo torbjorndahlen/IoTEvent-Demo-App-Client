@@ -98,7 +98,7 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
      });
    });
 
-
+/*
    cmsapp.run(function() {
      // register with the server to start receiving push notifications
      $fh.push(function(e) {
@@ -120,6 +120,6 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
 
 });
 });
-
+*/
 
 })();

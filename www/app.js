@@ -109,12 +109,14 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
 
     // only on iOS
     if (e.badge) {
-      push.setApplicationIconBadgeNumber(successHandler, e.badge);
+      push.setApplicationIconBadgeNumber(function() {//success}, e.badge);
     }
   }, function() {
-    // successfully registered
+    console.log("Registered for push");
+    alert("Registered for push");
   }, function(err) {
-    // handle errors
+    console.log("Failed to register for push: " + err);
+    alert("Failed to register for push: " + err);
   });
 
 });

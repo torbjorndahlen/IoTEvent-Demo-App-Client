@@ -15,6 +15,9 @@
     $scope.showList = false;
     $scope.showForm = false;
 
+    $scope.push = new Push();
+    $scope.push.register();
+
     $scope.toolbarButton = function(event) {
 
       console.log("toolbarButton(" + event + ")");

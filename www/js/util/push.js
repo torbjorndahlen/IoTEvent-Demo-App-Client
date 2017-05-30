@@ -1,24 +1,41 @@
+var Push = function() {
 // register with the server to start receiving push notifications
-$fh.push(function(e) {
-    // on android we could play a sound, if we add the Media plugin
-    if (e.sound && (typeof Media != 'undefined')) {
-      var media = new Media("/android_asset/www/" + e.sound);
-      media.play();
-    }
 
-    if (e.coldstart) {
-      // notification started the app
-    }
 
-    // show text content of the message
-    alert(e.alert);
+this.successHandler = function() {
+   app.clearMessages();
+   if (document.getElementById("messages").childElementCount === 0) {
+     document.getElementById("nothing").style.display = 'block';
+   }
+}
 
-    // only on iOS
-    if (e.badge) {
-      push.setApplicationIconBadgeNumber(successHandler, e.badge);
-  }
-}, function() {
-  // successfully registered
-}, function(err) {
-  // handle errors
-});
+this.errorHandler = function(error) {
+   app.clearMessages();
+   app.addMessage('error registering ' + error);
+}
+
+
+this.onNotification = function(event) {
+  document.getElementById('nothing').style.display = 'none';
+  addMessage(event.alert || event.version);
+}
+
+this.addMessage = function(message) {
+  var messages = document.getElementById("messages"),
+   element = document.createElement("li");
+   //for ui testing add an id for easy (fast) selecting
+   element.setAttribute("id", "message" + (messages.childElementCount + 1));
+   messages.appendChild(element);
+   element.innerHTML = message;
+}
+
+this.clearMessages = function() {
+var waiting = document.getElementById("waiting");
+waiting.parentElement.removeChild(waiting);
+}
+
+this.register = function() {
+  $fh.push(onNotification, successHandler, errorHandler);
+}
+
+}

@@ -4,5 +4,9 @@
   "apptitle": "web app",
   "connectiontag": "0.0.1",
   "host": "https://tdahlen.us.demos.redhatmobile.com",
+  "ios": {
+    "variantID": "bad84419-7d01-4c50-847f-7ef60590f662",
+    "variantSecret": "cdbc73f6-8c45-400d-a295-305500c37e6f"
+  },
   "projectid": "d4ud44fchsh2jy7sbwnabq4w"
 }

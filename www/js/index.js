@@ -33,9 +33,24 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+      $fh.push(app.onNotification, successHandler, errorHandler);
+
       angular.element(document).ready(function() {
           angular.bootstrap(document.getElementById("deviceready"), ["IoTEvent-Demo-App"]);
       });
+
+      function successHandler() {
+         app.clearMessages();
+         if (document.getElementById("messages").childElementCount === 0) {
+           document.getElementById("nothing").style.display = 'block';
+         }
+      }
+
+      function errorHandler(error) {
+         app.clearMessages();
+         app.addMessage('error registering ' + error);
+      }
+
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

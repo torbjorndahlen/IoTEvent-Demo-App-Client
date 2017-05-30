@@ -26,7 +26,7 @@ var app = {
     // Bind any events that are required on startup. Common events are:
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('deviceready', this.register, false);
     },
     // deviceready Event Handler
     //
@@ -52,6 +52,10 @@ var app = {
     },
     register: function () {
       $fh.push(app.onNotification, successHandler, errorHandler);
+
+      angular.element(document).ready(function() {
+          angular.bootstrap(document.getElementById("deviceready"), ["IoTEvent-Demo-App"]);
+      });
 
       function successHandler() {
          app.clearMessages();

@@ -10,11 +10,18 @@
     "author": "Apache Cordova Team",
     "license": "Apache-2.0",
     "dependencies": {
-        "aerogear-cordova-push": "git+https://github.com/aerogear/aerogear-cordova-push.git"
+        "aerogear-cordova-push": "git+https://github.com/aerogear/aerogear-cordova-push.git",
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-whitelist": "^1.3.2",
+        "es6-promise-plugin": "git+https://github.com/vstirbu/PromisesPlugin.git"
     },
     "cordova": {
         "plugins": {
-            "aerogear-cordova-push": {}
-        }
+            "aerogear-cordova-push": {},
+            "cordova-plugin-whitelist": {}
+        },
+        "platforms": [
+            "ios"
+        ]
     }
 }

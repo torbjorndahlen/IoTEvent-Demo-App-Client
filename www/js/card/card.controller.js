@@ -18,7 +18,7 @@
             console.log('fail: ' + JSON.stringify(response));
             //$state.go('error', {error: {"message": JSON.stringify(response), "nextState":'viewDash'}});
           } else {
-            console.log('response: ' + JSON.stringify(response));
+            //console.log('response: ' + JSON.stringify(response));
 
             $scope.processInstances = response.taskInfoList;
 

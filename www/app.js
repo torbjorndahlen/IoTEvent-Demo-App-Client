@@ -96,8 +96,6 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
          }
        }
      });
-
-
    });
 
    cmsapp.run(function() {
@@ -119,6 +117,7 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
     alert("Failed to register for push: " + err);
   });
 
+});
 });
 
 })();

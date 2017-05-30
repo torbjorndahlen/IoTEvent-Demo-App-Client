@@ -9,6 +9,7 @@
     if($sessionStorage.processInstance != null) {
         $scope.processInstance = $sessionStorage.processInstance;
     } else {
+        /*
       $mdDialog.show(
         $mdDialog.alert()
         .title('Internal Error')
@@ -17,6 +18,7 @@
         .ok('OK')
         .targetEvent(event)
       );
+      */
 
       $state.go('view');
     }

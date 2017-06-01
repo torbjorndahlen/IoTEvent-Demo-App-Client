@@ -38,49 +38,7 @@ var app = {
           angular.bootstrap(document.getElementById("deviceready"), ["IoTEvent-Demo-App"]);
       });
 
-    },
-    // Update DOM on a Received Event
-    receivedEvent: function(id) {
-        var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
-
-        listeningElement.setAttribute('style', 'display:none;');
-        receivedElement.setAttribute('style', 'display:block;');
-
-        console.log('Received Event: ' + id);
-    },
-    register: function () {
-      $fh.push(app.onNotification, successHandler, errorHandler);
-
-      function successHandler() {
-         app.clearMessages();
-         if (document.getElementById("messages").childElementCount === 0) {
-           document.getElementById("nothing").style.display = 'block';
-         }
-      }
-
-      function errorHandler(error) {
-         app.clearMessages();
-         app.addMessage('error registering ' + error);
-      }
-   },
-   onNotification: function (event) {
-      document.getElementById('nothing').style.display = 'none';
-      app.addMessage(event.alert || event.version);
-   },
-   addMessage: function (message) {
-      var messages = document.getElementById("messages"),
-         element = document.createElement("li");
-      //for ui testing add an id for easy (fast) selecting
-      element.setAttribute("id", "message" + (messages.childElementCount + 1));
-      messages.appendChild(element);
-      element.innerHTML = message;
-   },
-   clearMessages: function() {
-     var waiting = document.getElementById("waiting");
-     waiting.parentElement.removeChild(waiting);
-   }
+    }
 };
 
 app.initialize();

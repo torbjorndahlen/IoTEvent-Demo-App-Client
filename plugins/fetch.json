@@ -1,0 +1,26 @@
+{
+    "es6-promise-plugin": {
+        "source": {
+            "type": "registry",
+            "id": "https://github.com/vstirbu/PromisesPlugin.git"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "aerogear-cordova-push": {
+        "source": {
+            "type": "registry",
+            "id": "https://github.com/aerogear/aerogear-cordova-push.git"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

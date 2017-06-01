@@ -1,0 +1,133 @@
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android" id="aerogear-cordova-push" version="4.0.0">
+  <name>
+    AeroGear PushPlugin
+  </name>
+  <description>
+    This plugin allows your application to receive push notifications, using the AeroGear Unified Push Server.
+  </description>
+  <license>
+    Apache 2.0 License
+  </license>
+  <keywords>cordova,aerogear,push,ups,unified,push</keywords>
+  <engines>
+    <engine name="cordova" version=">=6.4.0"/>
+    <engine name="cordova-android" version=">=4.0.0" />
+    <engine name="cordova-ios" version=">=4.3.0"/>
+  </engines>
+  <dependency id="es6-promise-plugin" url="https://github.com/vstirbu/PromisesPlugin.git"/>
+  <js-module src="www/aerogear.ajax.js" name="AeroGear.ajax">
+    <clobbers target="ajax" />
+  </js-module>
+  <js-module src="www/aerogear-push.js" name="AeroGear.UnifiedPush">
+    <clobbers target="push"/>
+  </js-module>
+  <platform name="android">
+    <hook type="before_plugin_install" src="scripts/androidBeforeInstall.js" />
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="PushPlugin">
+        <param name="android-package" value="org.jboss.aerogear.cordova.push.PushPlugin"/>
+      </feature>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+      <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+    </config-file>
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <activity android:name="org.jboss.aerogear.cordova.push.PushHandlerActivity"/>
+      <meta-data android:name="DEFAULT_MESSAGE_HANDLER_KEY" android:value="org.jboss.aerogear.cordova.push.NotificationMessageHandler" />
+      <service android:name="org.jboss.aerogear.android.unifiedpush.fcm.UnifiedPushInstanceIDListenerService" android:exported="false">
+        <intent-filter>
+          <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+        </intent-filter>
+      </service>
+      <service android:name="org.jboss.aerogear.android.unifiedpush.fcm.AeroGearFCMMessageReceiver">
+        <intent-filter>
+          <action android:name="com.google.firebase.MESSAGING_EVENT" />
+        </intent-filter>
+      </service>
+    </config-file>
+    <framework src="com.google.firebase:firebase-messaging:9.4.0" />
+    <framework src="com.android.support:appcompat-v7:22.+" />
+    <framework src="org.jboss.aerogear:aerogear-android-store:3.0.2" />
+    <framework src="org.jboss.aerogear:aerogear-android-push:4.0.2" />
+    <framework src="src/android/dependencies.gradle" type="gradleReference" custom="true"/>
+    <source-file src="src/android/org/jboss/aerogear/cordova/push/NotificationMessageHandler.java" target-dir="src/org/jboss/aerogear/cordova/push/"/>
+    <source-file src="src/android/org/jboss/aerogear/cordova/push/PushPlugin.java" target-dir="src/org/jboss/aerogear/cordova/push/"/>
+    <source-file src="src/android/org/jboss/aerogear/cordova/push/PushHandlerActivity.java" target-dir="src/org/jboss/aerogear/cordova/push/"/>
+    <source-file src="src/android/org/jboss/aerogear/cordova/push/Message.java" target-dir="src/org/jboss/aerogear/cordova/push/"/>
+  </platform>
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="PushPlugin">
+        <param name="ios-package" value="AGPushPlugin"/>
+      </feature>
+    </config-file>
+    <config-file target="*-Info.plist" parent="UIBackgroundModes">
+      <array>
+        <string>remote-notification</string>
+      </array>
+    </config-file>
+    <config-file target="*-Debug.plist" parent="aps-environment">
+        <string>development</string>
+    </config-file>
+    <config-file target="*-Release.plist" parent="aps-environment">
+        <string>production</string>
+    </config-file>
+    <source-file src="src/ios/AppDelegate+notification.m"/>
+    <source-file src="src/ios/AGPushPlugin.m"/>
+    <header-file src="src/ios/AppDelegate+notification.h"/>
+    <header-file src="src/ios/AGPushPlugin.h"/>
+    <header-file src="src/ios/AGDeviceRegistration.h"/>
+    <header-file src="src/ios/AGClientDeviceInformation.h"/>
+    <header-file src="src/ios/AGPushAnalytics.h"/>
+    <header-file src="src/ios/AeroGearPush.h"/>
+    <framework src="AeroGear-Push" type="podspec" spec="1.2.0"/>
+  </platform>
+  <platform name="firefoxos">
+    <config-file target="config.xml" parent="/*">
+      <permission name="push"/>
+      <permission name="desktop-notification" />
+    </config-file>
+    <js-module src="src/aerogear.custom.js" name="api">
+      <runs />
+    </js-module>
+    <js-module src="src/firefoxos/pushProxy.js" name="AeroGear.UnifiedPushProxy">
+      <runs />
+    </js-module>
+  </platform>
+
+  <platform name="wp8">
+    <config-file target="config.xml" parent="/*">
+      <feature name="PushPlugin">
+        <param name="wp-package" value="PushPlugin"/>
+      </feature>
+    </config-file>
+    <config-file target="Properties/WMAppManifest.xml" parent="/Deployment/App/Capabilities">
+      <Capability Name="ID_CAP_PUSH_NOTIFICATION" />
+    </config-file>
+    <source-file src="src/wp8/PushPlugin.cs" />
+    <source-file src="src/wp8/P.xaml" />
+    <source-file src="src/wp8/P.xaml.cs" />
+
+    <source-file src="src/wp8/shared/ILocalStore.cs" />
+    <source-file src="src/wp8/shared/Installation.cs" />
+    <source-file src="src/wp8/shared/PushReceivedEvent.cs" />
+    <source-file src="src/wp8/shared/IUPSHttpClient.cs" />
+    <source-file src="src/wp8/shared/PushNotification.cs" />
+    <source-file src="src/wp8/shared/Registration.cs" />
+    <source-file src="src/wp8/shared/UrlQueryParser.cs" />
+    <source-file src="src/wp8/shared/PushConfig.cs" />
+    <source-file src="src/wp8/shared/UPSHttpClient.cs" />
+
+    <source-file src="src/wp8/cordova/LocalStore.cs" />
+    <source-file src="src/wp8/cordova/MpnsRegistration.cs" />
+  </platform>
+  <platform name="windows">
+    <js-module src="src/aerogear.custom.js" name="api">
+      <runs />
+    </js-module>
+    <js-module src="src/windows/pushProxy.js" name="AeroGear.UnifiedPushProxy">
+      <runs />
+    </js-module>
+  </platform>
+</plugin>

@@ -1,0 +1,62 @@
+{
+  "name": "aerogear-cordova-push",
+  "version": "4.0.0",
+  "description": "This plugin allows your application to receive push notifications, using the AeroGear UnifiedPush Server.",
+  "cordova": {
+    "id": "aerogear-cordova-push",
+    "platforms": [
+      "android",
+      "ios",
+      "firefoxos",
+      "wp8",
+      "windows"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aerogear/aerogear-cordova-push.git"
+  },
+  "keywords": [
+    "cordova",
+    "aerogear",
+    "push",
+    "ups",
+    "unified",
+    "push",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-firefoxos",
+    "cordova-wp8",
+    "cordova-windows"
+  ],
+  "engines": {
+    "cordovaDependencies": {
+      "3.1.0": {
+        "cordova": ">=3.4.0",
+        "cordova-android": ">=4.0.0",
+        "cordova-ios": "<4.3.0"
+      },
+      "4.0.0": {
+        "cordova": ">=6.4.0",
+        "cordova-android": ">=4.0.0",
+        "cordova-ios": ">=4.3.0"
+      }
+    }
+  },
+  "author": {
+    "name": "edewit"
+  },
+  "license": "Apache 2.0 License",
+  "bugs": {
+    "url": "https://issues.jboss.org/browse/AGCORDOVA"
+  },
+  "homepage": "https://aerogear.org/docs/specs/aerogear-cordova/",
+  "readme": "# AeroGear PushPlugin Cordova\n\n[![npm package](https://nodei.co/npm/aerogear-cordova-push.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/aerogear-cordova-push/)\n\n[![Dependency Status](https://img.shields.io/david/aerogear/aerogear-cordova-push.svg?style=flat-square)](https://david-dm.org/aerogear/aerogear-cordova-push)\n[![Known Vulnerabilities](https://snyk.io/test/npm/aerogear-cordova-push/badge.svg?style=flat-square)](https://snyk.io/test/npm/aerogear-cordova-push)\n\n> This plugin makes starting with AeroGear Unified Push simple.\n\n|                 | Project Info  |\n| --------------- | ------------- |\n| License:        | Apache License, Version 2.0  |\n| Build:          | Cordova Plugin  |\n| Documentation:  | https://aerogear.org/docs/specs/aerogear-cordova/  |\n| Issue tracker:  | https://issues.jboss.org/browse/AGCORDOVA  |\n| Mailing lists:  | [aerogear-users](http://aerogear-users.1116366.n5.nabble.com/) ([subscribe](https://lists.jboss.org/mailman/listinfo/aerogear-users))  |\n|                 | [aerogear-dev](http://aerogear-dev.1069024.n5.nabble.com/) ([subscribe](https://lists.jboss.org/mailman/listinfo/aerogear-dev))  |\n\n## Getting Started \n* [AeroGear Push Plugin Guide](http://aerogear.org/docs/guides/aerogear-cordova/AerogearCordovaPush/)\n\n## Run tests\n\n1. Use your existing cordova app, or create a new one.\n1. Add the plugin and the tests:\n\n  ```bash\n  cordova plugin add https://github.com/aerogear/aerogear-cordova-push.git\n  cordova plugin add https://github.com/aerogear/aerogear-cordova-push.git#:/tests\n  ```\n\n1. Add this plugin:\n  ```bash\n  cordova plugin add http://git-wip-us.apache.org/repos/asf/cordova-plugin-test-framework.git\n  ```\n1. Change the start page in `config.xml` with `<content src=\"cdvtests/index.html\" />` or navigate to cdvtests/index.html from within your app.\n\n## Documentation\n\nFor more details about the current release, please consult [our documentation](https://aerogear.org/docs/specs/aerogear-cordova/).\n\n## Development\n\nIf you would like to help develop AeroGear you can join our [developer's mailing list](https://lists.jboss.org/mailman/listinfo/aerogear-dev), join #aerogear on Freenode, or shout at us on Twitter @aerogears.\n\nAlso takes some time and skim the [contributor guide](http://aerogear.org/docs/guides/Contributing/)\n\n## Questions?\n\nJoin our [user mailing list](https://lists.jboss.org/mailman/listinfo/aerogear-users) for any questions or help! We really hope you enjoy app development with AeroGear!\n\n## Found a bug?\n\nIf you found a bug please create a ticket for us on [Jira](https://issues.jboss.org/browse/AGCORDOVA) with some steps to reproduce it.\n",
+  "readmeFilename": "README.md",
+  "gitHead": "5d10cf8680ae29ab474df2f1aeaa18ddab1723c8",
+  "_id": "aerogear-cordova-push@4.0.0",
+  "_shasum": "e0a870a802c43e14f94acb84106cb9312a4e3fa1",
+  "_from": "git+https://github.com/aerogear/aerogear-cordova-push.git",
+  "_resolved": "git+https://github.com/aerogear/aerogear-cordova-push.git#5d10cf8680ae29ab474df2f1aeaa18ddab1723c8"
+}

@@ -98,28 +98,4 @@ cmsapp.config(function($stateProvider, $urlRouterProvider){
      });
    });
 
-/*
-   cmsapp.run(function() {
-     // register with the server to start receiving push notifications
-     $fh.push(function(e) {
-
-    // show text content of the message
-    alert(e.alert);
-
-    // only on iOS
-    if (e.badge) {
-      push.setApplicationIconBadgeNumber(function() {}, e.badge);
-    }
-  }, function() {
-    console.log("Registered for push");
-    alert("Registered for push");
-  }, function(err) {
-    console.log("Failed to register for push: " + err);
-    alert("Failed to register for push: " + err);
-  });
-
-});
-});
-*/
-
 })();

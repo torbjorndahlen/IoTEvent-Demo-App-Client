@@ -11,12 +11,10 @@
   "license": "Apache-2.0",
   "dependencies": {
     "aerogear-cordova-push": "git+https://github.com/aerogear/aerogear-cordova-push.git",
-    "cordova-plugin-whitelist": "^1.3.2",
-    "es6-promise-plugin": "git+https://github.com/vstirbu/PromisesPlugin.git"
+    "cordova-plugin-whitelist": "^1.3.2"
   },
   "cordova": {
     "plugins": {
-      "aerogear-cordova-push": {},
       "cordova-plugin-whitelist": {}
     },
     "platforms": []

@@ -6,7 +6,7 @@
   .controller('pushController', ['$mdToast', '$mdBottomSheet', '$mdSidenav', '$timeout', '$mdDialog','$rootScope', '$scope', '$state', '$sessionStorage', 'pushService',
   function ($mdToast, $mdBottomSheet, $mdSidenav, $timeout, $mdDialog, $rootScope, $scope, $state, $sessionStorage, pushService){
 
-    if($sessionStorage.push == false) {
+    if($sessionStorage.push === undefined) {
 
       // register with the server to start receiving push notifications
       $fh.push(function(e) {

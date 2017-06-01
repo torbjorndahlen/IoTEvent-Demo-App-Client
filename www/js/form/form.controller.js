@@ -6,7 +6,7 @@
   .controller('formController', ['$q', '$mdToast', '$mdBottomSheet', '$mdSidenav', '$timeout', '$mdDialog','$rootScope', '$scope', '$state', '$sessionStorage', 'formService',
   function ($q, $mdToast, $mdBottomSheet, $mdSidenav, $timeout, $mdDialog, $rootScope, $scope, $state, $sessionStorage, formService){
 
-    if($sessionStorage.processInstance != null) {
+    if($sessionStorage.processInstance != undefined) {
         $scope.processInstance = $sessionStorage.processInstance;
     } else {
         /*
@@ -28,6 +28,7 @@
     $scope.payload;
     $scope.timestamp;
 
+    if($scope.processInstance != undefined) {
     for(var i = 0; i < $scope.processInstance.variables.length; i++) {
       if($scope.processInstance.variables[i].name === "deviceType") {
         $scope.deviceType = $scope.processInstance.variables[i].value.value;
@@ -40,6 +41,7 @@
       }
 
     }
+  }
 
 
   $scope.doPrimaryAction = function(event, caller) {

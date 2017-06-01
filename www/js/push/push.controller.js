@@ -32,7 +32,9 @@
   });
 
 
-  }
+} else {
+  console.log("$sessionStorage.push: " + $sessionStorage.push);
+}
 
   }]);
 })();

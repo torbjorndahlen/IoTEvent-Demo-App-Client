@@ -25,7 +25,7 @@
   "readmeFilename": "README.md",
   "gitHead": "894ebffb0261857fa1873e647cc89e68abc07c08",
   "_id": "es6-promise-plugin@4.1.0",
-  "_shasum": "e5a842a1ef061974f523f28a2000f31a5e0b4fc1",
+  "_shasum": "7158c45c30dd83ea854e04205d0e4d0863c95493",
   "_from": "git+https://github.com/vstirbu/PromisesPlugin.git",
   "_resolved": "git+https://github.com/vstirbu/PromisesPlugin.git#894ebffb0261857fa1873e647cc89e68abc07c08"
 }

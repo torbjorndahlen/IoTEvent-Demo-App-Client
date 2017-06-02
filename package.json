@@ -1,24 +1,27 @@
 {
-  "name": "com.torbjorndahlen.iot",
-  "displayName": "IoTEvent-Demo-App-Client",
-  "version": "1.0.0",
-  "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Apache Cordova Team",
-  "license": "Apache-2.0",
-  "dependencies": {
-    "aerogear-cordova-push": "git+https://github.com/aerogear/aerogear-cordova-push.git",
-    "cordova-plugin-whitelist": "^1.3.2",
-    "es6-promise-plugin": "git+https://github.com/vstirbu/PromisesPlugin.git"
-  },
-  "cordova": {
-    "plugins": {
-      "cordova-plugin-whitelist": {},
-      "aerogear-cordova-push": {}
+    "name": "com.torbjorndahlen.iot",
+    "displayName": "IoTEvent-Demo-App-Client",
+    "version": "1.0.0",
+    "description": "A sample Apache Cordova application that responds to the deviceready event.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "platforms": []
-  }
+    "author": "Apache Cordova Team",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "aerogear-cordova-push": "^3.1.0",
+        "cordova-ios": "^4.4.0",
+        "cordova-plugin-whitelist": "^1.3.2",
+        "es6-promise-plugin": "git+https://github.com/vstirbu/PromisesPlugin.git"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "aerogear-cordova-push": {}
+        },
+        "platforms": [
+            "ios"
+        ]
+    }
 }

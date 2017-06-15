@@ -102,6 +102,7 @@
           );
         }
 
+
   $scope.onSwipeDown = function(e) {
     console.log("Swipe down");
 

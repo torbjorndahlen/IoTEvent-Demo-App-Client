@@ -6,6 +6,24 @@
   .controller('pushController', ['$mdToast', '$mdBottomSheet', '$mdSidenav', '$timeout', '$mdDialog','$rootScope', '$scope', '$state', '$sessionStorage', 'pushService',
   function ($mdToast, $mdBottomSheet, $mdSidenav, $timeout, $mdDialog, $rootScope, $scope, $state, $sessionStorage, pushService){
 
+
+    var alert;
+
+    // Internal method
+    var showAlert = function(msg) {
+      alert = $mdDialog.alert({
+        title: 'IoT Event',
+        textContent: msg,
+        ok: 'Close'
+      });
+
+      $mdDialog
+        .show( alert )
+        .finally(function() {
+          alert = undefined;
+        });
+    };
+
       // register with the server to start receiving push notifications
       $fh.push(function(e) {
 
@@ -14,8 +32,8 @@
       }
 
       // show text content of the message
-      alert(e.alert);
-
+      //alert(e.alert);
+      showAlert(e.alert);
 
       // only on iOS
       if (e.badge) {

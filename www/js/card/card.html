@@ -1,3 +1,5 @@
+
+<div md-swipe-down="onSwipeDown()">
 <md-card
   class="mdb-card mdb-element-y"
   flex="none"
@@ -26,7 +28,6 @@
   <md-card-content class="mdb-element-y">
     <p class="mdb-element-y">Activation Time: {{task["activation-time"]}}</p>
   </md-card-content>
-</div>
 
 <div layout="row" layout-align="end center" class="mdb-element-y">
   <md-divider></md-divider>
@@ -40,5 +41,6 @@
     <md-button class="mdb-element-y" ng-click="viewVariables($event, task)">View</md-button>
     <md-button class="mdb-element-y" ng-click="doPrimaryAction($event, task)">Release</md-button>
   </md-card-actions>
-
+</div>
 </md-card>
+</div>
